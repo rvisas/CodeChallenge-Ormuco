@@ -1,5 +1,5 @@
 {
-  "name": "overlappinglines",
+  "name": "codechallenge-ormuco",
   "version": "1.0.0",
   "description": "Find out if two lines overlap each other",
   "main": "question1.js",
