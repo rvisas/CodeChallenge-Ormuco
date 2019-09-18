@@ -2,7 +2,7 @@
   "name": "codechallenge-ormuco-js",
   "version": "1.0.0",
   "description": "Solutions for a couple of JS questions",
-  "main": "question1.js",
+  "main": "app.js",
   "scripts": {
     "test": "mocha ./test/tests.js"
   },
