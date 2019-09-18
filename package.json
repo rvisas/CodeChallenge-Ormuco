@@ -1,0 +1,15 @@
+{
+  "name": "overlappinglines",
+  "version": "1.0.0",
+  "description": "Find out if two lines overlap each other",
+  "main": "question1.js",
+  "scripts": {
+    "test": "mocha tests.js"
+  },
+  "author": "Ronny Visa",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}
