@@ -1,10 +1,10 @@
 {
-  "name": "codechallenge-ormuco",
+  "name": "codechallenge-ormuco-js",
   "version": "1.0.0",
-  "description": "Find out if two lines overlap each other",
+  "description": "Solutions for a couple of JS questions",
   "main": "question1.js",
   "scripts": {
-    "test": "mocha tests.js"
+    "test": "mocha ./test/tests.js"
   },
   "author": "Ronny Visa",
   "license": "ISC",
