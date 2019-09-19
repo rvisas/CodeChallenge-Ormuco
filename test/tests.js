@@ -65,21 +65,21 @@ describe('Comparing strings:', () => {
         expect(output.message).contains('ERROR');
     });
     
-    it('should return GREATER than for "10.1" and "9.75"', () => {
+    it('should return 1 (Greater) for "10.1" and "9.75"', () => {
         const output = app.compareStrings("10.1", "9.75");
         expect(output.error).to.equal(false);
-        expect(output.message).contains('greater');
+        expect(output.value).to.equal(1);
     });
 
-    it('should return LESS than for "9.75" and "10.1"', () => {
+    it('should return -1 (Less) for "9.75" and "10.1"', () => {
         const output = app.compareStrings("9.75", "10.1");
         expect(output.error).to.equal(false);
-        expect(output.message).contains('less');
+        expect(output.value).to.equal(-1);
     });
 
-    it('should return EQUAL to for "11.23" and "11.23"', () => {
+    it('should return 0 (Equal) for "11.23" and "11.23"', () => {
         const output = app.compareStrings("11.23", "11.23");
         expect(output.error).to.equal(false);
-        expect(output.message).contains('equal');
+        expect(output.value).to.equal(0);
     });
 });

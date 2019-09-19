@@ -8,26 +8,36 @@ const app = {
         if ((!length1) || (!length2)) return false;
         return (start1 < start2) ? ((start1 + length1) > start2) : ((start2 + length2) > start1);
     },
-
+    // Returns -1 if string1 < string2;
+    // Returns 0 if string1 = string2;
+    // Returns 1 if string1 > string2;
     compareStrings: (string1 = '', string2 = '') => {
-        if ((!string1) || (!string2) || isNaN(string1) || isNaN(string2)) {
+        if (!app.validStrings(string1, string2)) {
             return {
                 error: true,
-                message: 'ERROR: One or more strings could not be converted to a number'
+                message: 'ERROR: One or more strings could not be converted to a version number',
+                value: NaN
             };
         };
 
-        const parsedNumber1 = Number(string1);
-        const parsedNumber2 = Number(string2);
-
-        const message = (parsedNumber1 > parsedNumber2) ? 'First string is greater than Second string' :
-            (parsedNumber1 < parsedNumber2) ? 'First string is less than Second string' :
-                'First string is equal to Second string';
-
+        const listOFVersionNumbers1 = string1.split('.');
+        const listOFVersionNumbers2 = string2.split('.');
+        
         return {
             error: false,
-            message
-        };
+            message: '',
+            value: 1
+        }
+    },
+    validStrings: (s1, s2) => {
+        if ((typeof s1 !== 'string') || (typeof s2 !== 'string'))
+            return false;
+
+        const pattern = /^(\d{1,2})(\.\d{1,2})*$/;
+        if (pattern.test(s1) && pattern.test(s2))
+            return true;
+
+        return false;
     }
 };
 
