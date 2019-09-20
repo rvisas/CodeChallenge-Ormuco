@@ -52,11 +52,7 @@ describe('Comparing strings:', () => {
     it('should return Error if neither of the strings are valid numbers', () => {
         expect(app.compareStrings("__45.123", "34.(45{%&")).to.equal('Error');
     });
-
-    it('should return Error if neither of the strings are valid numbers', () => {
-        expect(app.compareStrings("12.34.5ygt", "12.34.%&")).to.equal('Error');
-    });
-
+    
     it('should return 1 (Greater) for "10.1.2.45" and "10.1.2"', () => {
         expect(app.compareStrings("10.1.2.45", "10.1.2")).to.equal(1);
     });
