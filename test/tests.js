@@ -53,15 +53,23 @@ describe('Comparing strings:', () => {
         expect(app.compareStrings("__45.123", "34.(45{%&")).to.equal('Error');
     });
 
-    it('should return 1 (Greater) for "10.1" and "9.75"', () => {
-        expect(app.compareStrings("10.1", "9.75")).to.equal(1);
+    it('should return Error if neither of the strings are valid numbers', () => {
+        expect(app.compareStrings("12.34.5ygt", "12.34.%&")).to.equal('Error');
     });
 
-    it('should return -1 (Less) for "9.75" and "10.1"', () => {
-        expect(app.compareStrings("9.75", "10.1")).to.equal(-1);
+    it('should return 1 (Greater) for "10.1.2.45" and "10.1.2"', () => {
+        expect(app.compareStrings("10.1.2.45", "10.1.2")).to.equal(1);
     });
 
-    it('should return 0 (Equal) for "11.23" and "11.23"', () => {
-        expect(app.compareStrings("11.23", "11.23")).to.equal(0);
+    it('should return -1 (Less) for "9.75.0.12" and "9.75.1"', () => {
+        expect(app.compareStrings("9.75.0.12", "9.75.1")).to.equal(-1);
+    });
+
+    it('should return -1 (Less) for "9.75" and "9.75.1"', () => {
+        expect(app.compareStrings("9.75", "9.75.1")).to.equal(-1);
+    });
+
+    it('should return 0 (Equal) for "11.23.4.0.0.2" and "11.23.4.0.0.2"', () => {
+        expect(app.compareStrings("11.23.4.0.0.2", "11.23.4.0.0.2")).to.equal(0);
     });
 });

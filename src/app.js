@@ -18,8 +18,7 @@ const app = {
         const numbers1 = string1.split('.').map(x => Number(x));
         const numbers2 = string2.split('.').map(x => Number(x));
 
-        let result = 0;
-        let index1 = 0, index2 = 0;
+        let result = 0, index1 = 0, index2 = 0;
         while ((index1 < numbers1.length) && (index2 < numbers2.length)) {
             if (numbers1[index1] > numbers2[index2]) {
                 result = 1;
