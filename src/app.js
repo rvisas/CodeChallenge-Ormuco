@@ -12,31 +12,41 @@ const app = {
     // Returns 0 if string1 = string2;
     // Returns 1 if string1 > string2;
     compareStrings: (string1 = '', string2 = '') => {
-        if (!app.validStrings(string1, string2)) {
-            return {
-                error: true,
-                message: 'ERROR: One or more strings could not be converted to a version number',
-                value: NaN
-            };
+        if (!app.validStrings(string1, string2))
+            return 'Error';
+
+        const numbers1 = string1.split('.').map(x => Number(x));
+        const numbers2 = string2.split('.').map(x => Number(x));
+
+        let result = 0;
+        let index1 = 0, index2 = 0;
+        while ((index1 < numbers1.length) && (index2 < numbers2.length)) {
+            if (numbers1[index1] > numbers2[index2]) {
+                result = 1;
+                break;
+            } else if (numbers1[index1] < numbers2[index2]) {
+                result = -1;
+                break;
+            }
+            index1++;
+            index2++;
         };
 
-        const listOFVersionNumbers1 = string1.split('.');
-        const listOFVersionNumbers2 = string2.split('.');
-        
-        return {
-            error: false,
-            message: '',
-            value: 1
+        if (!result) {
+            if (index1 < numbers1.length) {
+                result = 1;
+            } else if (index2 < numbers2.length) {
+                result = -1;
+            }
         }
+
+        return result
+
     },
     validStrings: (s1, s2) => {
-        if ((typeof s1 !== 'string') || (typeof s2 !== 'string'))
-            return false;
-
-        const pattern = /^(\d{1,2})(\.\d{1,2})*$/;
-        if (pattern.test(s1) && pattern.test(s2))
+        const re = /^(\d{1,2})(\.\d{1,2})*$/;
+        if (re.test(s1) && re.test(s2))
             return true;
-
         return false;
     }
 };

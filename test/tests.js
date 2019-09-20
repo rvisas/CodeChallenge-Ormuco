@@ -3,7 +3,7 @@ const expect = require('chai').expect;
 
 describe('Overlapping function:', () => {
     it('should return FALSE for two dots: (3,3) and (6,6)', () => {
-        expect(app.isOverlapped(3, 3, 6, 8)).to.equal(false);        
+        expect(app.isOverlapped(3, 3, 6, 8)).to.equal(false);
     });
 
     it('should return FALSE for a dot (3,3) and a line (6,8)', () => {
@@ -29,57 +29,39 @@ describe('Overlapping function:', () => {
 });
 
 describe('Comparing strings:', () => {
-    it('should return ERROR if first and second strings are empty', () => {
-        const output = app.compareStrings("", "");
-        expect(output.error).to.equal(true);
-        expect(output.message).contains('ERROR');
+    it('should return Error if first and second strings are empty', () => {
+        expect(app.compareStrings("", "")).to.equal('Error');
     });
 
-    it('should return ERROR if first string is empty', () => {
-        const output = app.compareStrings("", "9.75");
-        expect(output.error).to.equal(true);
-        expect(output.message).contains('ERROR');
+    it('should return Error if first string is empty', () => {
+        expect(app.compareStrings("", "9.75")).to.equal('Error');
     });
 
-    it('should return ERROR if second string is empty', () => {
-        const output = app.compareStrings("9.75", "");
-        expect(output.error).to.equal(true);
-        expect(output.message).contains('ERROR');
+    it('should return Error if second string is empty', () => {
+        expect(app.compareStrings("9.75", "")).to.equal('Error');
     });
 
-    it('should return ERROR if first string is not a valid number', () => {
-        const output = app.compareStrings("34.(45{%&", "9.75");
-        expect(output.error).to.equal(true);
-        expect(output.message).contains('ERROR');
+    it('should return Error if first string is not a valid number', () => {
+        expect(app.compareStrings("34.(45{%&", "9.75")).to.equal('Error');
     });
 
-    it('should return ERROR if second string is not a valid number', () => {
-        const output = app.compareStrings("9.75", "34.(45{%&");
-        expect(output.error).to.equal(true);
-        expect(output.message).contains('ERROR');
+    it('should return Error if second string is not a valid number', () => {
+        expect(app.compareStrings("9.75", "34.(45{%&")).to.equal('Error');
     });
 
-    it('should return ERROR if neither of the strings are valid numbers', () => {
-        const output = app.compareStrings("__45.123", "34.(45{%&");
-        expect(output.error).to.equal(true);
-        expect(output.message).contains('ERROR');
+    it('should return Error if neither of the strings are valid numbers', () => {
+        expect(app.compareStrings("__45.123", "34.(45{%&")).to.equal('Error');
     });
-    
+
     it('should return 1 (Greater) for "10.1" and "9.75"', () => {
-        const output = app.compareStrings("10.1", "9.75");
-        expect(output.error).to.equal(false);
-        expect(output.value).to.equal(1);
+        expect(app.compareStrings("10.1", "9.75")).to.equal(1);
     });
 
     it('should return -1 (Less) for "9.75" and "10.1"', () => {
-        const output = app.compareStrings("9.75", "10.1");
-        expect(output.error).to.equal(false);
-        expect(output.value).to.equal(-1);
+        expect(app.compareStrings("9.75", "10.1")).to.equal(-1);
     });
 
     it('should return 0 (Equal) for "11.23" and "11.23"', () => {
-        const output = app.compareStrings("11.23", "11.23");
-        expect(output.error).to.equal(false);
-        expect(output.value).to.equal(0);
+        expect(app.compareStrings("11.23", "11.23")).to.equal(0);
     });
 });
