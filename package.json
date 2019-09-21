@@ -4,7 +4,7 @@
   "description": "Solutions for a couple of JS questions",
   "main": "app.js",
   "scripts": {
-    "test": "mocha ./test/tests.js"
+    "test": "mocha ./test/ronny_visa_test.js"
   },
   "author": "Ronny Visa",
   "license": "ISC",
