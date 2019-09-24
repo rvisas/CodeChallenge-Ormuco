@@ -1,7 +1,7 @@
 {
   "name": "codechallenge-ormuco-js",
   "version": "1.0.0",
-  "description": "Solutions for a couple of JS questions",
+  "description": "Solutions for Ormuco questions based on JS",
   "main": "app.js",
   "scripts": {
     "test": "mocha ./test/ronny_visa_test.js"
